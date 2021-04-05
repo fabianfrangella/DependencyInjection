@@ -1,9 +1,10 @@
 package com.di.kotlin.di.solo
 
+import com.di.kotlin.ILogger
 import com.di.kotlin.IUserRepository
 import com.di.kotlin.model.User
 
-class UserRepository(private val logger: Logger) : IUserRepository {
+class UserRepository(private val logger: ILogger) : IUserRepository {
 
     private val users: MutableList<User> = mutableListOf();
 

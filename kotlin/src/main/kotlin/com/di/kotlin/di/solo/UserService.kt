@@ -1,9 +1,14 @@
 package com.di.kotlin.di.solo
 
+import com.di.kotlin.ILogger
+import com.di.kotlin.IUserRepository
 import com.di.kotlin.IUserService
+import com.di.kotlin.IValidationsService
 import com.di.kotlin.model.User
 
-class UserService(private val userRepository: UserRepository, private val logger: Logger, private val validationsService: ValidationsService) : IUserService {
+class UserService(private val userRepository: IUserRepository,
+                  private val logger: ILogger,
+                  private val validationsService: IValidationsService) : IUserService {
 
     override fun create(nombre: String, apellido: String): User {
         val valid = this.validationsService.validateIdentidad(nombre, apellido)
