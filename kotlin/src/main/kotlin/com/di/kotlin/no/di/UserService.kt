@@ -1,13 +1,14 @@
 package com.di.kotlin.no.di
 
+import com.di.kotlin.IUserService
 import com.di.kotlin.model.User
 
-class UserService {
+class UserService : IUserService {
     private val userRepository = UserRepository()
     private val validationsService = ValidationsService()
     private val logger = Logger()
 
-    fun create(nombre: String, apellido: String): User {
+    override fun create(nombre: String, apellido: String): User {
         val valid = this.validationsService.validateIdentidad(nombre, apellido)
         if (!valid) {
             throw Exception("El nombre o el apellido no son validos")
@@ -17,7 +18,7 @@ class UserService {
         return user
     }
 
-    fun findById(id: Long) : User? {
+    override fun findById(id: Long) : User? {
         return this.userRepository.findById(id)
     }
 }
