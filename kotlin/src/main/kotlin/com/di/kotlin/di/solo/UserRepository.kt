@@ -1,16 +1,17 @@
 package com.di.kotlin.di.solo
 
+import com.di.kotlin.IUserRepository
 import com.di.kotlin.model.User
 
-class UserRepository(private val logger: Logger) {
+class UserRepository(private val logger: Logger) : IUserRepository {
 
     private val users: MutableList<User> = mutableListOf();
 
-    fun findById(id: Long) : User? {
+    override fun findById(id: Long) : User? {
         return users.find { it.id == id }
     }
 
-    fun createUser(nombre: String, apellido: String) : User{
+    override fun createUser(nombre: String, apellido: String) : User{
         this.logger.log("user con nombre $nombre y apellido $apellido creado")
         val user = User(Math.random().toLong(), nombre, apellido)
         users.add(user)

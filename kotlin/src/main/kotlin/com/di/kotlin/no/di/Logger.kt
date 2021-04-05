@@ -1,8 +1,10 @@
 package com.di.kotlin.no.di
 
-class Logger {
+import com.di.kotlin.ILogger
 
-    fun log(message: String) {
+class Logger : ILogger {
+
+    override fun log(message: String) {
         println(message)
     }
 }

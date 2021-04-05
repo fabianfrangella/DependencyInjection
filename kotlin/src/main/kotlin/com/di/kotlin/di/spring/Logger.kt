@@ -1,11 +1,12 @@
 package com.di.kotlin.di.spring
 
+import com.di.kotlin.ILogger
 import org.springframework.stereotype.Component
 
 @Component
-class Logger {
+class Logger : ILogger {
 
-    fun log(message: String) {
+    override fun log(message: String) {
         println(message)
     }
 }
