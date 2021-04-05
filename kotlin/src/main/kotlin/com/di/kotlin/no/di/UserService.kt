@@ -16,4 +16,8 @@ class UserService {
         this.logger.log("User created: $user")
         return user
     }
+
+    fun findById(id: Long) : User? {
+        return this.userRepository.findById(id)
+    }
 }
