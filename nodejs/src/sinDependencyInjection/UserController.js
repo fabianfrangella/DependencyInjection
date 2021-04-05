@@ -1,6 +1,6 @@
 import {UserService} from "./UserService";
 
-export class UserController {
+export class UserControllerSinDI {
 
     userService = new UserService();
 
