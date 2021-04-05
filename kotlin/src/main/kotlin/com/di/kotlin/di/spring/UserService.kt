@@ -1,6 +1,9 @@
 package com.di.kotlin.di.spring
 
+import com.di.kotlin.ILogger
+import com.di.kotlin.IUserRepository
 import com.di.kotlin.IUserService
+import com.di.kotlin.IValidationsService
 import com.di.kotlin.model.User
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -8,9 +11,9 @@ import org.springframework.stereotype.Service
 @Service
 class UserService : IUserService {
 
-    @Autowired private lateinit var userRepository: UserRepository
-    @Autowired private lateinit var logger: Logger
-    @Autowired private lateinit var validationsService: ValidationsService
+    @Autowired private lateinit var userRepository: IUserRepository
+    @Autowired private lateinit var logger: ILogger
+    @Autowired private lateinit var validationsService: IValidationsService
 
     override fun create(nombre: String, apellido: String): User {
         val valid = this.validationsService.validateIdentidad(nombre, apellido)

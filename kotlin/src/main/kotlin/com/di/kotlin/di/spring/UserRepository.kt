@@ -1,5 +1,6 @@
 package com.di.kotlin.di.spring
 
+import com.di.kotlin.ILogger
 import com.di.kotlin.IUserRepository
 import com.di.kotlin.model.User
 import org.springframework.beans.factory.annotation.Autowired
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Component
 @Component
 class UserRepository : IUserRepository {
 
-    @Autowired private lateinit var logger: Logger
+    @Autowired private lateinit var logger: ILogger
 
     private val users: MutableList<User> = mutableListOf();
 
