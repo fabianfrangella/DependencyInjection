@@ -1,3 +1,5 @@
+import {Container} from "../conDependencyInjection/conLibreria/Container";
+
 var express = require('express');
 var router = express.Router();
 
@@ -7,3 +9,11 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router;
+
+
+/**
+ * Con Awilix
+ */
+const controller = Container.resolve("userController")
+router.post("/awilix/create", (req,res,next) =>
+    controller.create({req,res,next}))
