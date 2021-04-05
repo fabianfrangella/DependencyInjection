@@ -10,8 +10,13 @@ class UserController {
 
     val userService = UserService()
 
-    @PostMapping()
-    fun getById(nombre: String, apellido: String): User {
+    @PostMapping
+    fun create(nombre: String, apellido: String): User {
         return this.userService.create(nombre, apellido)
+    }
+
+    @GetMapping
+    fun findById(id: Long) : User? {
+        return this.userService.findById(id)
     }
 }
