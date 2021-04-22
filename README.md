@@ -1,2 +1,2 @@
 # DependencyInjection
-Ejemplos de dependency inyection e invertion of control en Kotlin y NodeJS
+Ejemplos de dependency inyection e invertion of control en Kotlin y NodeJS para charla Ibisdev
